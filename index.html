@@ -7,64 +7,76 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f172a;         /* slate navy */
-      --card:#111a2e;       /* slightly lighter */
-      --ink:#e6eefc;        /* main text */
-      --muted:#a6b4d6;      /* secondary text */
-      --brand:#38bdf8;      /* cyan */
-      --brand2:#6366f1;     /* indigo */
-      --ring:#1f2b4a;       /* borders */
-      --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --maxw:1100px;
+      --bg-gradient:linear-gradient(180deg, #0f172a 0%, #111a2e 40%, #0f172a 100%);
+      --card:#111a2e;
+      --ink:#e6eefc;
+      --muted:#a6b4d6;
+      --brand:#38bdf8;
+      --brand2:#6366f1;
+      --ring:#1f2b4a;
+      --radius:20px;
+      --shadow:0 12px 34px rgba(0,0,0,.38);
+      --maxw:1320px;       /* wider for breathing room */
     }
     *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.75;background:var(--bg);color:var(--ink)}
+    html,body{height:100%;margin:0}
+    body{
+      font-family:Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:18.5px; line-height:1.9;
+      background:var(--bg-gradient); color:var(--ink);
+    }
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px 18px 80px}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px 120px}
 
     /* NAV */
-    .nav{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(15,23,42,.6));backdrop-filter:blur(6px);border-bottom:1px solid var(--ring)}
-    .nav .bar{max-width:var(--maxw);margin:0 auto;padding:10px 18px;display:flex;gap:16px;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px}
-    .photo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #21406d;background:#14213d;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
-    .name{font-weight:700}
-    .links{display:flex;gap:14px;flex-wrap:wrap}
-    .pill{padding:8px 12px;border:1px solid var(--ring);border-radius:12px;color:var(--ink)}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring)}
+    .nav .bar{max-width:var(--maxw);margin:0 auto;padding:16px 24px;display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:14px}
+    .photo{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid #21406d;background:#14213d;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+    .name{font-weight:800;font-size:22px}
+    .title{color:var(--muted);font-weight:600;font-size:16px;margin-top:4px}
+    .links{display:flex;gap:16px;flex-wrap:wrap}
+    .pill{padding:10px 14px;border:1px solid var(--ring);border-radius:14px;color:var(--ink);transition:.2s}
+    .pill:hover{background:var(--brand);color:#071522}
 
     /* HERO */
-    .hero{margin-top:20px;background:radial-gradient(800px 300px at -10% -10%, #1e293b 0%, transparent 70%),radial-gradient(900px 400px at 100% 0%, #0b2740 0%, transparent 70%),var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;display:grid;gap:18px}
-    .title{color:var(--muted);font-weight:500}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071522;padding:10px 16px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
+    .hero{
+      margin-top:44px;
+      background:rgba(17,26,46,.92);
+      border:1px solid var(--ring);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:72px 64px;
+      display:grid; gap:20px; text-align:center;
+    }
+    .hero h1{margin:0; font-size:52px}
+    .hero .sub{color:var(--muted); font-weight:600; font-size:20px}
+    .hero p{max-width:72ch; margin:0 auto}
+    .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .btn{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071522;padding:12px 20px;border-radius:14px;font-weight:700;box-shadow:var(--shadow)}
     .ghost{background:transparent;color:var(--ink);border:1px solid var(--ring)}
-    .tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tag{font-family:"Fira Code",monospace;font-size:12px;padding:6px 10px;border-radius:999px;background:#0b152b;border:1px solid #2b4372;color:var(--muted)}
+    .tag{font-family:"Fira Code",monospace;font-size:13px;padding:7px 12px;border-radius:999px;background:#0b152b;border:1px solid #2b4372;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
 
     /* GRID */
-    .grid{display:grid;gap:18px;margin-top:22px;grid-template-columns:repeat(3,1fr)}
-    @media (max-width:1020px){.grid{grid-template-columns:1fr}}
+    .grid{display:grid;gap:36px;margin-top:52px;grid-template-columns:2fr 1.2fr; align-items:start}
+    @media (max-width:1100px){ .grid{grid-template-columns:1fr} }
 
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    h2{margin:0 0 10px;font-size:20px}
-    h3{margin:0 0 6px;font-size:16px}
-    .sub{color:var(--muted);font-size:14px}
-    ul{margin:0;padding-left:18px}
-    li{margin:8px 0}
+    .card{background:rgba(17,26,46,.92);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px}
+    h2{margin:0 0 14px;font-size:22px}
+    h3{margin:4px 0 8px;font-size:18px}
+    .sub{color:var(--muted);font-size:15px}
+    ul{margin:0;padding-left:22px}
+    li{margin:12px 0}
 
     /* collapsible bullets */
-    details{border:1px solid var(--ring);border-radius:12px;padding:8px 12px;margin-top:10px}
-    details summary{cursor:pointer;list-style:none;color:var(--ink)}
+    details{border:1px solid var(--ring);border-radius:14px;padding:10px 14px;margin-top:12px}
+    details summary{cursor:pointer;list-style:none;color:var(--ink);font-weight:600}
     details summary::-webkit-details-marker{display:none}
     details[open]{border-color:#34518a}
 
-    /* SECTIONS */
-    .section-title{display:flex;align-items:center;gap:8px;margin:0 0 12px}
-    .section-title span{display:inline-block;width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2))}
-
-    footer{margin-top:40px;text-align:center;color:var(--muted)}
+    footer{margin-top:68px;text-align:center;color:var(--muted)}
   </style>
 </head>
 <body>
@@ -75,7 +87,7 @@
         <img class="photo" src="headshot.jpg" alt="Mohammad Sheraz Anwar" />
         <div>
           <div class="name">Mohammad Sheraz Anwar</div>
-          <div class="title">Linux • DevOps • Cloud Engineer — AWS • Terraform • Kubernetes • CI/CD</div>
+          <div class="title">Linux • DevOps • Cloud Engineer</div> <!-- simplified per your request -->
         </div>
       </div>
       <nav class="links">
@@ -91,33 +103,35 @@
   <main class="wrap">
     <!-- HERO -->
     <section id="about" class="hero">
-      <div>
-        <h1 style="margin:0">DevOps & Cloud Engineer</h1>
-        <p class="title">I build reliable cloud platforms, secure CI/CD, and automated infrastructure at scale.</p>
-        <p>Passionate and driven DevOps Engineer with six years of hands-on experience in transforming and streamlining deployment processes across multi‑cloud and on‑prem Linux environments. Skilled at configuration management, Kubernetes, and Terraform with a focus on reliability and speed.</p>
-        <div class="cta">
-          <a class="btn" href="#contact">Contact</a>
-          <a class="pill" href="Resume.pdf">Download Résumé</a>
-          <a class="pill" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
-          <a class="pill" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
-        </div>
+      <h1>DevOps & Cloud Engineer</h1>
+      <p class="sub">Linux • DevOps • Cloud Engineer</p>
+      <p>I build reliable cloud platforms, secure CI/CD, and automated infrastructure at scale. Passionate and driven DevOps Engineer with six years of hands-on experience in multi-cloud and on-prem Linux environments.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Contact</a>
+        <a class="pill" href="Resume.pdf">Download Résumé</a>
+        <a class="pill" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
+        <a class="pill" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
       </div>
+      <!-- (optional) remove this tags row if you want it even cleaner -->
       <div class="tags">
-        <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">JFrog</span>
+        <span class="tag">Linux</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span>
       </div>
     </section>
 
     <!-- GRID LAYOUT -->
     <section class="grid">
-      <!-- EXPERIENCE -->
+      <!-- EXPERIENCE (wide left column) -->
       <article id="experience" class="card">
-        <h2 class="section-title"><span></span>Experience</h2>
+        <h2>Experience</h2>
+
         <h3>Senior Engineer, Ground Software DevOps — Terran Orbital</h3>
         <div class="sub">12/2024 – Present • Irvine, USA</div>
         <ul>
           <li>Senior engineer on ground software DevOps; platform hardening and CI/CD ownership.</li>
         </ul>
-        <hr style="border:0;border-top:1px solid var(--ring);margin:14px 0">
+
+        <hr style="border:0;border-top:1px solid var(--ring);margin:18px 0">
+
         <h3>DevOps Engineer — JP Morgan</h3>
         <div class="sub">09/2021 – 12/2024 • New York, NY, USA</div>
         <ul>
@@ -129,7 +143,7 @@
         <details>
           <summary>Show full responsibilities</summary>
           <ul>
-            <li>Provisioned and managed multi‑provider cloud resources with Terraform.</li>
+            <li>Provisioned and managed multi-provider cloud resources with Terraform.</li>
             <li>Implemented Git branching strategies; enforced code review & policy.</li>
             <li>Tuned Kubernetes clusters and apps; improved SLOs and cost.</li>
             <li>Designed HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG).</li>
@@ -137,7 +151,9 @@
             <li>Backups & DR with AWS Backup/Glacier; observability with Prom/Grafana.</li>
           </ul>
         </details>
-        <hr style="border:0;border-top:1px solid var(--ring);margin:14px 0">
+
+        <hr style="border:0;border-top:1px solid var(--ring);margin:18px 0">
+
         <h3>Systems Administrator — MetroPCS</h3>
         <div class="sub">07/2019 – 09/2021 • Richardson, TX, USA</div>
         <ul>
@@ -157,50 +173,38 @@
         </details>
       </article>
 
-      <!-- PROJECTS -->
+      <!-- PROJECTS (right column, top) -->
       <article id="projects" class="card">
-        <h2 class="section-title"><span></span>Projects</h2>
+        <h2>Projects</h2>
         <ul>
           <li><strong>Pipeline as Code:</strong> Reusable GitHub Actions for lint, test, build, SBOM, deploy.</li>
           <li><strong>JFrog Split:</strong> Migrated Artifactory/Xray to separate PostgreSQL backends with Helm.</li>
-          <li><strong>Cost‑Efficient Environments:</strong> Ephemeral preview stacks via Terraform + PRs.</li>
+          <li><strong>Cost-Efficient Environments:</strong> Ephemeral preview stacks via Terraform + PRs.</li>
         </ul>
       </article>
 
-      <!-- SKILLS -->
+      <!-- SKILLS (right column, bottom) -->
       <article id="skills" class="card">
-        <h2 class="section-title"><span></span>Skills</h2>
+        <h2>Skills</h2>
         <h3>Cloud & IaC</h3>
-        <ul>
-          <li>AWS, Azure • Terraform, CloudFormation • Ansible (Playbooks, Roles, Tower)</li>
-        </ul>
+        <ul><li>AWS, Azure • Terraform, CloudFormation • Ansible (Playbooks, Roles, Tower)</li></ul>
         <h3>Containers</h3>
-        <ul>
-          <li>Docker • Kubernetes (EKS, AKS) • Helm • ECS, ECR</li>
-        </ul>
+        <ul><li>Docker • Kubernetes (EKS, AKS) • Helm • ECS, ECR</li></ul>
         <h3>CI/CD & SCM</h3>
-        <ul>
-          <li>GitHub Actions, Jenkins, Harness • Git, Bitbucket, Bamboo</li>
-        </ul>
+        <ul><li>GitHub Actions, Jenkins, Harness • Git, Bitbucket, Bamboo</li></ul>
         <h3>Monitoring & Logging</h3>
-        <ul>
-          <li>Prometheus, Grafana, Loki • Nagios, Splunk</li>
-        </ul>
+        <ul><li>Prometheus, Grafana, Loki • Nagios, Splunk</li></ul>
         <h3>Systems</h3>
-        <ul>
-          <li>Linux (RHEL, Ubuntu, CentOS) • VMware vSphere/vCenter • Networking, RAID, PXE</li>
-        </ul>
+        <ul><li>Linux (RHEL, Ubuntu, CentOS) • VMware vSphere/vCenter • Networking, RAID, PXE</li></ul>
         <h3>Scripting & Tools</h3>
-        <ul>
-          <li>Bash, Python • Harbor, JFrog Artifactory/Xray, Sonatype • Jira, Confluence, ServiceNow</li>
-        </ul>
+        <ul><li>Bash, Python • Harbor, JFrog Artifactory/Xray, Sonatype • Jira, Confluence, ServiceNow</li></ul>
       </article>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="card" style="margin-top:22px">
-      <h2 class="section-title"><span></span>Contact</h2>
-      <p>Email: <a href="mailto:MohammadSAnwar26@gmail.com">MohammadSAnwar26@gmail.com</a> • Phone: <a href="tel:15169002505">(516) 900‑2505</a> • Location: Irvine, CA (open to remote)</p>
+    <section id="contact" class="card" style="margin-top:28px">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:MohammadSAnwar26@gmail.com">MohammadSAnwar26@gmail.com</a> • Phone: <a href="tel:15169002505">(516) 900-2505</a> • Irvine, CA (open to remote)</p>
       <div class="cta">
         <a class="btn" href="mailto:MohammadSAnwar26@gmail.com">Email Me</a>
         <a class="pill" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
