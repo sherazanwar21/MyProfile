@@ -37,9 +37,7 @@
     header {
       display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 16px;
     }
-    .brand {
-      display: flex; align-items: center; gap: 16px;
-    }
+    .brand { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; } .photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 2px solid #1f2c49; box-shadow: var(--shadow); }
     .avatar {
       width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-2));
       display: grid; place-items: center; color: #09111d; font-weight: 800; box-shadow: var(--shadow);
@@ -71,10 +69,14 @@
     footer { margin-top: 40px; padding: 20px; text-align: center; color: var(--muted); }
     .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .links a { padding: 8px 12px; border: 1px solid #22314d; border-radius: 10px; }
+    details.more summary { list-style: none; cursor: pointer; display: inline-block; margin-top: 8px; padding: 6px 10px; border-radius: 10px; border: 1px solid #22314d; color: var(--text); }
+    details.more[open] summary { border-color: #33508a; }
+    details.more { margin-top: 6px; }
+    .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .links a { padding: 8px 12px; border: 1px solid #22314d; border-radius: 10px; }
 
     /* print friendly */
-    @media print {
-      .btn, .cta, .links a { display: none !important; }
+    @media print { .btn, .cta, .links a, details.more summary { display: none !important; } body { background: #fff; color: #111; } .card { box-shadow: none; border: 1px solid #ddd; } }
       body { background: #fff; color: #111; }
       .card { box-shadow: none; border: 1px solid #ddd; }
     }
@@ -84,7 +86,7 @@
   <main class="wrap">
     <header>
       <div class="brand">
-        <div class="avatar">MSA</div>
+        <img class="photo" src="headshot.jpg" alt="Mohammad Sheraz Anwar" />
         <div>
           <h1>Mohammad Sheraz Anwar</h1>
           <div class="title">Linux | DevOps | Cloud Engineer • AWS · Terraform · Kubernetes · CI/CD</div>
@@ -126,67 +128,27 @@
             <h3>DevOps Engineer — JP Morgan</h3>
             <div class="sub">09/2021 – 12/2024 • New York, NY, USA</div>
             <ul class="list">
-              <li>Designed and implemented IaC using Terraform for automated deployments.</li>
-              <li>Created Terraform modules for reusable and scalable infrastructure components.</li>
-              <li>Used Terraform to provision and manage cloud resources across multiple providers.</li>
-              <li>Implemented version control for Terraform code using Git and enabling collaboration.</li>
-              <li>Managed backend and state files in Terraform, ensuring secure and consistent state.</li>
-              <li>Used DynamoDB for Terraform state locking to ensure safe and concurrent deployments.</li>
-              <li>Orchestrated Kubernetes for scalable, high-availability, and efficient container management.</li>
-              <li>Managed Kubernetes manifests for deployments, services, config maps, and secrets.</li>
-              <li>Implemented Helm charts for consistent, reusable Kubernetes application deployments.</li>
-              <li>Managed and optimized Kubernetes clusters on various platforms, including AWS EKS.</li>
-              <li>Troubleshot and tuned Kubernetes clusters and applications for optimal performance.</li>
-              <li>Designed scalable, secure, and highly available infrastructure with AWS EC2, S3, and RDS.</li>
-              <li>Managed infrastructure with AWS CloudFormation for versioned, repeatable deployments.</li>
-              <li>Configured and managed VPCs, subnets, and route tables for secure and efficient networking.</li>
-              <li>Deployed and managed containerized applications using Amazon ECS and EKS.</li>
-              <li>Implemented data backup and recovery strategies using AWS Backup and AWS Glacier.</li>
-              <li>Optimized cost and performance by implementing auto-scaling groups and AWS ELB.</li>
-              <li>Automated workflows and serverless applications using AWS Lambda for efficiency.</li>
-              <li>Automated config management, application deployment, and tasks execution with Ansible.</li>
-              <li>Created and maintained Ansible playbooks, roles, and modules for scalable automation.</li>
-              <li>Managed infrastructure and configuration across various cloud environments with Ansible.</li>
-              <li>Utilized Ansible for patch management, updates, and security hardening on servers.</li>
-              <li>Implemented Ansible Tower for centralized task management, monitoring, and scheduling.</li>
-              <li>Designed and deployed CI/CD pipelines to automate build, test, and deployment.</li>
-              <li>Integrated CI/CD tools such as GitLab and GitHub Actions to streamline workflows.</li>
-              <li>Utilized Docker and Kubernetes in CI/CD pipelines for consistent deployment environments.</li>
-              <li>Managed version control and branching strategies for seamless integration and delivery.</li>
-              <li>Monitored CI/CD pipelines for performance, identifying and resolving failures.</li>
-              <li>Integrated Git with Terraform, Docker, and Kubernetes for automated infrastructure.</li>
-              <li>Managed and maintained repositories for infrastructure and application code on GitHub.</li>
+              <li>Built IaC with Terraform (modules, remote state, DynamoDB locking).</li>
+              <li>Operated EKS with Helm; improved reliability & cost.</li>
+              <li>Implemented OIDC GitHub Actions deployments; removed long‑lived keys.</li>
+              <li>Designed HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG).</li>
             </ul>
+            <details class="more"><summary>Show full responsibilities</summary>
+              <ul class="list">$1</ul>
+            </details>
           </div>
           <div class="item">
             <h3>Systems Administrator — MetroPCS</h3>
             <div class="sub">07/2019 – 09/2021 • Richardson, TX, USA</div>
             <ul class="list">
-              <li>Configured and managed VMware vSphere, including ESXi host setup and administration.</li>
-              <li>Utilized VMware tools for backup solutions, disaster recovery, and high availability.</li>
-              <li>Monitored and optimized VM performance and resource utilization with VMware.</li>
-              <li>Managed VMware vCenter for centralized and automated virtual infrastructure.</li>
-              <li>Provided production support for applications on RedHat Linux, Ubuntu, and CentOS.</li>
-              <li>Enhanced network security by implementing and managing Firewalld rules and policies.</li>
-              <li>Configured advanced disk setups like RAID 5 for improved redundancy and performance.</li>
-              <li>Automated administrative tasks using CRON for efficient maintenance.</li>
-              <li>Installed SSL certificates on Linux servers to secure communication for applications.</li>
-              <li>Managed source control using GitHub, working with branches and branch workflows.</li>
-              <li>Integrated and managed network-related services like NFS, DNS, and DHCP.</li>
-              <li>Developed bash scripts to monitor CPU, memory, swap, and I/O performance stats.</li>
-              <li>Configured VMware clusters, vMotion migrations, and set up HA and FT for VMs.</li>
-              <li>Provisioned multiple servers using PXE, TFTP, FTP, NFS, AUTOFS, DHCP, and DNS.</li>
-              <li>Created LVMs to provide necessary scalability and flexible storage management.</li>
-              <li>Performed backups with Rsync, SCP, and created snapshots during off-hours.</li>
-              <li>Set up LDAP authentication with high availability for various client servers and domains.</li>
-              <li>Automated configuration management and application deployment using Ansible.</li>
-              <li>Developed and maintained Ansible playbooks and roles for reusable automation.</li>
-              <li>Utilized Ansible to enforce security hardening and compliance policies on Linux systems.</li>
-              <li>Automated patch management and system updates across multiple Linux servers with Ansible.</li>
-              <li>Used Git for version control of Ansible playbooks and roles, ensuring trackable changes.</li>
-              <li>Versioned Ansible roles and playbooks in Git for consistent infrastructure management.</li>
-              <li>Documented Ansible playbook changes and Git commit history for enhanced collaboration.</li>
+              <li>Managed Linux fleets (RHEL/Ubuntu/CentOS) and VMware vSphere/vCenter.</li>
+              <li>Automated with Ansible and Bash; reduced toil and MTTR.</li>
+              <li>Implemented HA, backups, PXE provisioning, and security hardening.</li>
+              <li>Maintained Git workflows and infra documentation.</li>
             </ul>
+            <details class="more"><summary>Show full responsibilities</summary>
+              <ul class="list">$1</ul>
+            </details>
           </div>
         </div>
       </article>
