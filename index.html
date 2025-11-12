@@ -4,212 +4,211 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohammad Sheraz Anwar – DevOps & Cloud Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0e1628;
-      color: #e6ecf5;
-      line-height: 1.7;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
+    :root{
+      --bg:#0f172a;         /* slate navy */
+      --card:#111a2e;       /* slightly lighter */
+      --ink:#e6eefc;        /* main text */
+      --muted:#a6b4d6;      /* secondary text */
+      --brand:#38bdf8;      /* cyan */
+      --brand2:#6366f1;     /* indigo */
+      --ring:#1f2b4a;       /* borders */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --maxw:1100px;
     }
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      padding: 40px 20px;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    header img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #58c3ff;
-      box-shadow: 0 0 15px rgba(88,195,255,.4);
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin: 0;
-    }
-    .subtitle {
-      color: #9bb0d6;
-      font-size: 1rem;
-    }
-    .section {
-      background: #121c33;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.35);
-    }
-    .section h2 {
-      border-bottom: 1px solid #273d63;
-      padding-bottom: 6px;
-      margin-top: 0;
-      color: #6aa7ff;
-    }
-    ul { padding-left: 18px; }
-    li { margin: 6px 0; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .tag {
-      background: #1b2745;
-      border: 1px solid #314b7b;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
-      color: #9bb0d6;
-    }
-    footer {
-      text-align: center;
-      color: #9bb0d6;
-      margin-top: 40px;
-    }
+    *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.75;background:var(--bg);color:var(--ink)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px 18px 80px}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(15,23,42,.6));backdrop-filter:blur(6px);border-bottom:1px solid var(--ring)}
+    .nav .bar{max-width:var(--maxw);margin:0 auto;padding:10px 18px;display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .photo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #21406d;background:#14213d;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+    .name{font-weight:700}
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+    .pill{padding:8px 12px;border:1px solid var(--ring);border-radius:12px;color:var(--ink)}
+
+    /* HERO */
+    .hero{margin-top:20px;background:radial-gradient(800px 300px at -10% -10%, #1e293b 0%, transparent 70%),radial-gradient(900px 400px at 100% 0%, #0b2740 0%, transparent 70%),var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;display:grid;gap:18px}
+    .title{color:var(--muted);font-weight:500}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071522;padding:10px 16px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
+    .ghost{background:transparent;color:var(--ink);border:1px solid var(--ring)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-family:"Fira Code",monospace;font-size:12px;padding:6px 10px;border-radius:999px;background:#0b152b;border:1px solid #2b4372;color:var(--muted)}
+
+    /* GRID */
+    .grid{display:grid;gap:18px;margin-top:22px;grid-template-columns:repeat(3,1fr)}
+    @media (max-width:1020px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    h2{margin:0 0 10px;font-size:20px}
+    h3{margin:0 0 6px;font-size:16px}
+    .sub{color:var(--muted);font-size:14px}
+    ul{margin:0;padding-left:18px}
+    li{margin:8px 0}
+
+    /* collapsible bullets */
+    details{border:1px solid var(--ring);border-radius:12px;padding:8px 12px;margin-top:10px}
+    details summary{cursor:pointer;list-style:none;color:var(--ink)}
+    details summary::-webkit-details-marker{display:none}
+    details[open]{border-color:#34518a}
+
+    /* SECTIONS */
+    .section-title{display:flex;align-items:center;gap:8px;margin:0 0 12px}
+    .section-title span{display:inline-block;width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+
+    footer{margin-top:40px;text-align:center;color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="headshot.jpg" alt="Mohammad Sheraz Anwar" />
-      <div>
-        <h1>Mohammad Sheraz Anwar</h1>
-        <div class="subtitle">Linux | DevOps | Cloud Engineer • AWS | Terraform | Kubernetes | CI/CD</div>
+  <!-- NAVBAR -->
+  <div class="nav">
+    <div class="bar">
+      <div class="brand">
+        <img class="photo" src="headshot.jpg" alt="Mohammad Sheraz Anwar" />
+        <div>
+          <div class="name">Mohammad Sheraz Anwar</div>
+          <div class="title">Linux • DevOps • Cloud Engineer — AWS • Terraform • Kubernetes • CI/CD</div>
+        </div>
       </div>
-    </header>
+      <nav class="links">
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
-    <div class="section">
-      <h2>Profile Summary</h2>
-      <p>Passionate and driven DevOps Engineer with six years of hands-on experience in transforming and streamlining deployment processes across multi-cloud and on-prem Linux environments. Skilled at utilizing configuration management, CI/CD pipelines, and DevOps methodologies to deliver efficient and reliable solutions. Proficient in source control management, build and release processes, and adept at handling change and incident management. Experienced in VMware technologies, with a proven track record of exceptional communication and collaboration, driving success in fast-paced tech environments.</p>
+  <main class="wrap">
+    <!-- HERO -->
+    <section id="about" class="hero">
+      <div>
+        <h1 style="margin:0">DevOps & Cloud Engineer</h1>
+        <p class="title">I build reliable cloud platforms, secure CI/CD, and automated infrastructure at scale.</p>
+        <p>Passionate and driven DevOps Engineer with six years of hands-on experience in transforming and streamlining deployment processes across multi‑cloud and on‑prem Linux environments. Skilled at configuration management, Kubernetes, and Terraform with a focus on reliability and speed.</p>
+        <div class="cta">
+          <a class="btn" href="#contact">Contact</a>
+          <a class="pill" href="Resume.pdf">Download Résumé</a>
+          <a class="pill" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
+          <a class="pill" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
+        </div>
+      </div>
       <div class="tags">
         <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">JFrog</span>
       </div>
-    </div>
+    </section>
 
-    <div class="grid">
-      <div class="section">
-        <h2>Experience</h2>
+    <!-- GRID LAYOUT -->
+    <section class="grid">
+      <!-- EXPERIENCE -->
+      <article id="experience" class="card">
+        <h2 class="section-title"><span></span>Experience</h2>
         <h3>Senior Engineer, Ground Software DevOps — Terran Orbital</h3>
-        <p><strong>12/2024 – Present</strong> • Irvine, USA</p>
+        <div class="sub">12/2024 – Present • Irvine, USA</div>
         <ul>
           <li>Senior engineer on ground software DevOps; platform hardening and CI/CD ownership.</li>
         </ul>
-
+        <hr style="border:0;border-top:1px solid var(--ring);margin:14px 0">
         <h3>DevOps Engineer — JP Morgan</h3>
-        <p><strong>09/2021 – 12/2024</strong> • New York, NY, USA</p>
+        <div class="sub">09/2021 – 12/2024 • New York, NY, USA</div>
         <ul>
           <li>Designed and implemented IaC using Terraform (modules, automated deployments).</li>
           <li>Managed remote state with secure backends and DynamoDB state locking.</li>
           <li>Operated Kubernetes (EKS) with Helm; managed manifests and secrets.</li>
           <li>Built CI/CD with GitHub Actions/GitLab; containerized builds with Docker & K8s.</li>
         </ul>
-        <details class="more"><summary>Show full responsibilities</summary>
+        <details>
+          <summary>Show full responsibilities</summary>
           <ul>
             <li>Provisioned and managed multi‑provider cloud resources with Terraform.</li>
-            <li>Implemented version control and branching strategies in Git for collaboration.</li>
-            <li>Troubleshot and tuned Kubernetes clusters and applications for performance.</li>
-            <li>Designed highly available infrastructure on AWS (EC2, S3, RDS).</li>
-            <li>Managed infrastructure with AWS CloudFormation for repeatable deployments.</li>
-            <li>Configured VPCs, subnets, and route tables for secure networking.</li>
-            <li>Deployed applications using ECS and EKS.</li>
-            <li>Implemented backup and recovery via AWS Backup and Glacier.</li>
-            <li>Optimized cost and performance with Auto Scaling and ELB.</li>
-            <li>Automated serverless workflows using AWS Lambda.</li>
-            <li>Automated configuration management with Ansible (playbooks, roles, Tower).</li>
-            <li>Patch management, updates, and security hardening with Ansible.</li>
-            <li>Designed and monitored CI/CD pipelines; resolved failures proactively.</li>
-            <li>Integrated Git with Terraform, Docker, and Kubernetes; managed GitHub repos.</li>
+            <li>Implemented Git branching strategies; enforced code review & policy.</li>
+            <li>Tuned Kubernetes clusters and apps; improved SLOs and cost.</li>
+            <li>Designed HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG).</li>
+            <li>Infrastructure automation with CloudFormation, Lambda, and Ansible.</li>
+            <li>Backups & DR with AWS Backup/Glacier; observability with Prom/Grafana.</li>
           </ul>
         </details>
-
+        <hr style="border:0;border-top:1px solid var(--ring);margin:14px 0">
         <h3>Systems Administrator — MetroPCS</h3>
-        <p><strong>07/2019 – 09/2021</strong> • Richardson, TX, USA</p>
+        <div class="sub">07/2019 – 09/2021 • Richardson, TX, USA</div>
         <ul>
           <li>Managed Linux fleets (RHEL/Ubuntu/CentOS) and VMware vSphere/vCenter.</li>
           <li>Automated with Ansible and Bash; reduced toil and MTTR.</li>
           <li>Implemented HA, backups, PXE provisioning, and security hardening.</li>
           <li>Maintained Git workflows and infra documentation.</li>
         </ul>
-        <details class="more"><summary>Show full responsibilities</summary>
+        <details>
+          <summary>Show full responsibilities</summary>
           <ul>
-            <li>Configured ESXi hosts; used VMware tools for DR/HA and performance optimization.</li>
-            <li>Supported apps on RHEL, Ubuntu, and CentOS; enforced Firewalld policies.</li>
-            <li>Configured RAID (e.g., RAID‑5), LVM, and SSL on Linux servers.</li>
-            <li>Integrated NFS, DNS, DHCP; developed Bash scripts for resource monitoring.</li>
-            <li>Configured clusters, vMotion, HA/FT; provisioned servers via PXE/TFTP/FTP/NFS/AUTOFS.</li>
-            <li>Performed backups (rsync/SCP) and snapshotting during maintenance windows.</li>
-            <li>Set up LDAP authentication with HA across client servers and domains.</li>
-            <li>Wrote and versioned Ansible playbooks/roles in Git; enforced hardening & compliance.</li>
-            <li>Automated patching and updates at scale with Ansible.</li>
-            <li>Documented changes and commit history for collaboration.</li>
+            <li>ESXi/vCenter administration; HA/FT, vMotion, performance tuning.</li>
+            <li>Firewalld policies, SSL, RAID/LVM; NFS/DNS/DHCP integration.</li>
+            <li>PXE/TFTP/FTP/AUTOFS provisioning; rsync & snapshot backups.</li>
+            <li>LDAP auth with HA; extensive Ansible playbooks/roles versioned in Git.</li>
           </ul>
         </details>
-      </div>
+      </article>
 
-      <div class="section">
-        <h2>Projects</h2></h2>
+      <!-- PROJECTS -->
+      <article id="projects" class="card">
+        <h2 class="section-title"><span></span>Projects</h2>
         <ul>
-          <li><strong>Pipeline as Code:</strong> Reusable GitHub Actions for lint, test, build, SBOM, and deploy.</li>
+          <li><strong>Pipeline as Code:</strong> Reusable GitHub Actions for lint, test, build, SBOM, deploy.</li>
           <li><strong>JFrog Split:</strong> Migrated Artifactory/Xray to separate PostgreSQL backends with Helm.</li>
-          <li><strong>Cost-Efficient Environments:</strong> Ephemeral preview stacks via Terraform + GitHub PRs.</li>
+          <li><strong>Cost‑Efficient Environments:</strong> Ephemeral preview stacks via Terraform + PRs.</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="section">
-        <h2>Skills</h2>
+      <!-- SKILLS -->
+      <article id="skills" class="card">
+        <h2 class="section-title"><span></span>Skills</h2>
         <h3>Cloud & IaC</h3>
         <ul>
-          <li>AWS, Azure</li>
-          <li>Terraform, CloudFormation</li>
-          <li>Ansible (Playbooks, Roles, Tower)</li>
+          <li>AWS, Azure • Terraform, CloudFormation • Ansible (Playbooks, Roles, Tower)</li>
         </ul>
         <h3>Containers</h3>
         <ul>
-          <li>Docker, Kubernetes (EKS, AKS), Helm, ECS, ECR</li>
+          <li>Docker • Kubernetes (EKS, AKS) • Helm • ECS, ECR</li>
         </ul>
         <h3>CI/CD & SCM</h3>
         <ul>
-          <li>GitHub Actions, Jenkins, Harness</li>
-          <li>Git, Bitbucket, Bamboo</li>
+          <li>GitHub Actions, Jenkins, Harness • Git, Bitbucket, Bamboo</li>
         </ul>
         <h3>Monitoring & Logging</h3>
         <ul>
-          <li>Prometheus, Grafana, Loki, Nagios, Splunk</li>
+          <li>Prometheus, Grafana, Loki • Nagios, Splunk</li>
         </ul>
         <h3>Systems</h3>
         <ul>
-          <li>Linux (RHEL, Ubuntu, CentOS), VMware vSphere/vCenter, Networking, RAID, PXE</li>
+          <li>Linux (RHEL, Ubuntu, CentOS) • VMware vSphere/vCenter • Networking, RAID, PXE</li>
         </ul>
         <h3>Scripting & Tools</h3>
         <ul>
-          <li>Bash, Python</li>
-          <li>Harbor, JFrog Artifactory/Xray, Sonatype</li>
-          <li>Jira, Confluence, ServiceNow</li>
+          <li>Bash, Python • Harbor, JFrog Artifactory/Xray, Sonatype • Jira, Confluence, ServiceNow</li>
         </ul>
+      </article>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card" style="margin-top:22px">
+      <h2 class="section-title"><span></span>Contact</h2>
+      <p>Email: <a href="mailto:MohammadSAnwar26@gmail.com">MohammadSAnwar26@gmail.com</a> • Phone: <a href="tel:15169002505">(516) 900‑2505</a> • Location: Irvine, CA (open to remote)</p>
+      <div class="cta">
+        <a class="btn" href="mailto:MohammadSAnwar26@gmail.com">Email Me</a>
+        <a class="pill" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
+        <a class="pill" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
       </div>
-    </div>
+    </section>
 
-    <div class="section">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>B.S.</strong> Computer Engineering Technology — Farmingdale State College (2023–Present)</li>
-        <li><strong>A.A.S.</strong> Computer Engineering Technology — Queensborough Community College (2020–2022)</li>
-      </ul>
-    </div>
-
-    <footer>© 2025 Mohammad Sheraz Anwar. All Rights Reserved.</footer>
-  </div>
+    <footer>© 2025 Mohammad Sheraz Anwar</footer>
+  </main>
 </body>
 </html>
