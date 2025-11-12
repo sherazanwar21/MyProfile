@@ -1,0 +1,110 @@
+# === Resume content in YAML ===
+name: "Mohammad Sheraz Anwar"
+title: "Linux • DevOps • Cloud Engineer"
+location: "Irvine, CA (open to remote)"
+email: "MohammadSAnwar26@gmail.com"
+phone: "(516) 900-2505"
+linkedin: "https://www.linkedin.com/in/mohammad-anwar-979164317/"
+github: "https://github.com/sherazanwar21"
+
+summary: >
+  DevOps & Cloud Engineer with ~6 years building reliable cloud platforms,
+  secure CI/CD, and automated infrastructure across multi-cloud and on‑prem Linux.
+  I standardize Terraform modules, operate Kubernetes, and automate everything to reduce toil,
+  improve reliability, and speed up delivery.
+
+# Tags to show under hero
+tags:
+  - Linux
+  - Terraform
+  - Kubernetes
+  - Helm
+  - GitHub Actions
+  - Docker
+  - Jenkins
+
+experience:
+  - company: "Terran Orbital"
+    role: "Senior Engineer, Ground Software DevOps"
+    dates: "12/2024 – Present"
+    location: "Irvine, USA"
+    bullets:
+      - "Senior engineer on ground software DevOps; platform hardening and CI/CD ownership."
+
+  - company: "J.P. Morgan"
+    role: "DevOps Engineer"
+    dates: "09/2021 – 12/2024"
+    location: "New York, NY, USA"
+    bullets:
+      - "IaC with Terraform modules & secure remote state (DynamoDB locking)."
+      - "EKS with Helm; manifests, secrets, and app reliability."
+      - "CI/CD with GitHub Actions/GitLab; Docker & Kubernetes builds."
+    expand_bullets:
+      - "Provisioned and managed multi‑provider cloud resources with Terraform."
+      - "Implemented Git branching strategies; enforced code review & policy."
+      - "Tuned Kubernetes clusters and apps; improved SLOs and cost."
+      - "HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG)."
+      - "Automation with CloudFormation and Lambda; backups & DR (Backup/Glacier)."
+      - "Observability with Prometheus & Grafana."
+
+  - company: "MetroPCS"
+    role: "Systems Administrator"
+    dates: "07/2019 – 09/2021"
+    location: "Richardson, TX, USA"
+    bullets:
+      - "Managed Linux fleets (RHEL/Ubuntu/CentOS) & VMware vSphere/vCenter."
+      - "Automated with Ansible & Bash; reduced toil and MTTR."
+      - "HA, backups, PXE provisioning; security hardening."
+    expand_bullets:
+      - "ESXi/vCenter administration; HA/FT, vMotion, performance tuning."
+      - "Firewalld, SSL, RAID/LVM; NFS/DNS/DHCP integration."
+      - "PXE/TFTP/FTP/AUTOFS provisioning; rsync & snapshot backups."
+      - "LDAP authentication (HA); robust Ansible roles/playbooks versioned in Git."
+
+projects:
+  - name: "Pipeline as Code"
+    detail: "Reusable GitHub Actions for lint/test/build/SBOM/deploy."
+  - name: "JFrog Split"
+    detail: "Artifactory/Xray migrated to separate PostgreSQL backends via Helm."
+  - name: "Cost‑Efficient Environments"
+    detail: "Ephemeral stacks via Terraform + PRs."
+
+skills:
+  - category: "Cloud & IaC"
+    items:
+      - "AWS, Azure"
+      - "Terraform, CloudFormation"
+      - "Ansible (Playbooks, Roles, Tower)"
+  - category: "Containers"
+    items:
+      - "Docker"
+      - "Kubernetes (EKS, AKS)"
+      - "Helm, ECS, ECR"
+  - category: "CI/CD & SCM"
+    items:
+      - "GitHub Actions, Jenkins, Harness"
+      - "Git, Bitbucket, Bamboo"
+  - category: "Monitoring & Logging"
+    items:
+      - "Prometheus, Grafana, Loki"
+      - "Nagios, Splunk"
+  - category: "Systems"
+    items:
+      - "Linux (RHEL, Ubuntu, CentOS)"
+      - "VMware vSphere/vCenter"
+      - "Networking, RAID, PXE"
+  - category: "Scripting & Tools"
+    items:
+      - "Bash, Python"
+      - "Harbor, JFrog Artifactory/Xray, Sonatype"
+      - "Jira, Confluence, ServiceNow"
+
+education:
+  - degree: "B.S. Computer Engineering Technology"
+    school: "Farmingdale State College, State University of New York"
+    dates: "2023 – Present"
+    location: "Farmingdale, NY"
+  - degree: "A.A.S. Computer Engineering Technology"
+    school: "Queensborough Community College"
+    dates: "2020 – 2022"
+    location: "Bayside, NY"

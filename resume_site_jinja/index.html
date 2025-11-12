@@ -92,7 +92,8 @@
     <!-- HERO -->
     <section id="about" class="hero">
       <h1>DevOps & Cloud Engineer</h1>
-      <p class="lead">I build reliable cloud platforms, secure CI/CD, and automated infrastructure at scale. Six years across multi-cloud and on-prem Linux environments.</p>
+      <p class="lead">DevOps &amp; Cloud Engineer with ~6 years building reliable cloud platforms, secure CI/CD, and automated infrastructure across multi-cloud and on‑prem Linux. I standardize Terraform modules, operate Kubernetes, and automate everything to reduce toil, improve reliability, and speed up delivery.
+</p>
       <div class="cta">
         <a class="btn" href="#contact">Contact</a>
         <a class="ghost" href="Resume.pdf">Download Résumé</a>
@@ -100,7 +101,7 @@
         <a class="ghost" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
       </div>
       <div class="tags">
-        <span class="tag">Linux</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span>
+        <span class="tag">Linux</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">Docker</span><span class="tag">Jenkins</span>
       </div>
     </section>
 
@@ -108,69 +109,83 @@
     <section class="grid">
       <article id="experience" class="card">
         <h2>Experience</h2>
-        <h3>Senior Engineer, Ground Software DevOps — Terran Orbital</h3>
-        <div class="sub">12/2024 – Present • Irvine, USA</div>
-        <ul><li>Senior engineer on ground software DevOps; platform hardening and CI/CD ownership.</li></ul>
-        <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
-        <h3>DevOps Engineer — JP Morgan</h3>
-        <div class="sub">09/2021 – 12/2024 • New York, NY, USA</div>
-        <ul>
-          <li>IaC with Terraform modules & secure remote state (DynamoDB locking).</li>
-          <li>EKS with Helm; manifests, secrets, and app reliability.</li>
-          <li>CI/CD with GitHub Actions/GitLab; Docker & K8s builds.</li>
-        </ul>
-        <details>
-          <summary>Show full responsibilities</summary>
+        
+          <h3>Senior Engineer, Ground Software DevOps — Terran Orbital</h3>
+          <div class="sub">12/2024 – Present • Irvine, USA</div>
           <ul>
-            <li>Multi-provider cloud provisioning with Terraform.</li>
-            <li>Git branching & policy; reviews and protected releases.</li>
-            <li>K8s performance tuning and cost optimization.</li>
-            <li>HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG).</li>
-            <li>CloudFormation/Lambda automation; backups & DR (Backup/Glacier).</li>
-            <li>Observability with Prometheus & Grafana.</li>
+            <li>Senior engineer on ground software DevOps; platform hardening and CI/CD ownership.</li>
           </ul>
-        </details>
-        <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
-        <h3>Systems Administrator — MetroPCS</h3>
-        <div class="sub">07/2019 – 09/2021 • Richardson, TX, USA</div>
-        <ul>
-          <li>Managed Linux fleets (RHEL/Ubuntu/CentOS) & VMware vSphere/vCenter.</li>
-          <li>Automated with Ansible & Bash; reduced toil and MTTR.</li>
-          <li>HA, backups, PXE provisioning; security hardening.</li>
-        </ul>
-        <details>
-          <summary>Show full responsibilities</summary>
+          
+          <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
+        
+          <h3>DevOps Engineer — J.P. Morgan</h3>
+          <div class="sub">09/2021 – 12/2024 • New York, NY, USA</div>
           <ul>
-            <li>ESXi/HA/FT, vMotion, tuning • RAID/LVM • Firewalld • SSL.</li>
-            <li>NFS/DNS/DHCP • PXE/TFTP/FTP/AUTOFS • rsync & snapshots.</li>
-            <li>LDAP auth (HA); robust Ansible roles/playbooks in Git.</li>
+            <li>IaC with Terraform modules &amp; secure remote state (DynamoDB locking).</li><li>EKS with Helm; manifests, secrets, and app reliability.</li><li>CI/CD with GitHub Actions/GitLab; Docker &amp; Kubernetes builds.</li>
           </ul>
-        </details>
+          
+          <details>
+            <summary>Show full responsibilities</summary>
+            <ul><li>Provisioned and managed multi‑provider cloud resources with Terraform.</li><li>Implemented Git branching strategies; enforced code review &amp; policy.</li><li>Tuned Kubernetes clusters and apps; improved SLOs and cost.</li><li>HA AWS networking &amp; compute (VPC, EC2, RDS, ALB/ASG).</li><li>Automation with CloudFormation and Lambda; backups &amp; DR (Backup/Glacier).</li><li>Observability with Prometheus &amp; Grafana.</li></ul>
+          </details>
+          
+          <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
+        
+          <h3>Systems Administrator — MetroPCS</h3>
+          <div class="sub">07/2019 – 09/2021 • Richardson, TX, USA</div>
+          <ul>
+            <li>Managed Linux fleets (RHEL/Ubuntu/CentOS) &amp; VMware vSphere/vCenter.</li><li>Automated with Ansible &amp; Bash; reduced toil and MTTR.</li><li>HA, backups, PXE provisioning; security hardening.</li>
+          </ul>
+          
+          <details>
+            <summary>Show full responsibilities</summary>
+            <ul><li>ESXi/vCenter administration; HA/FT, vMotion, performance tuning.</li><li>Firewalld, SSL, RAID/LVM; NFS/DNS/DHCP integration.</li><li>PXE/TFTP/FTP/AUTOFS provisioning; rsync &amp; snapshot backups.</li><li>LDAP authentication (HA); robust Ansible roles/playbooks versioned in Git.</li></ul>
+          </details>
+          
+          
+        
       </article>
 
       <article id="projects" class="card">
         <h2>Projects</h2>
         <ul>
-          <li><strong>Pipeline as Code:</strong> Reusable Actions for lint/test/build/SBOM/deploy.</li>
-          <li><strong>JFrog Split:</strong> Artifactory/Xray → separate Postgres backends via Helm.</li>
-          <li><strong>Cost-Efficient Envs:</strong> Ephemeral stacks via Terraform + PRs.</li>
+          <li><strong>Pipeline as Code:</strong> Reusable GitHub Actions for lint/test/build/SBOM/deploy.</li><li><strong>JFrog Split:</strong> Artifactory/Xray migrated to separate PostgreSQL backends via Helm.</li><li><strong>Cost‑Efficient Environments:</strong> Ephemeral stacks via Terraform + PRs.</li>
         </ul>
       </article>
 
       <article id="skills" class="card">
         <h2>Skills</h2>
-        <h3>Cloud & IaC</h3>
-        <ul><li>AWS, Azure • Terraform, CloudFormation • Ansible (Playbooks, Roles, Tower)</li></ul>
-        <h3>Containers</h3>
-        <ul><li>Docker • Kubernetes (EKS, AKS) • Helm • ECS, ECR</li></ul>
-        <h3>CI/CD & SCM</h3>
-        <ul><li>GitHub Actions, Jenkins, Harness • Git, Bitbucket, Bamboo</li></ul>
-        <h3>Monitoring & Logging</h3>
-        <ul><li>Prometheus, Grafana, Loki • Nagios, Splunk</li></ul>
-        <h3>Systems</h3>
-        <ul><li>Linux (RHEL, Ubuntu, CentOS) • VMware vSphere/vCenter • Networking, RAID, PXE</li></ul>
-        <h3>Scripting & Tools</h3>
-        <ul><li>Bash, Python • Harbor, JFrog Artifactory/Xray, Sonatype • Jira, Confluence, ServiceNow</li></ul>
+        
+          <h3>Cloud &amp; IaC</h3>
+          <ul>
+            <li>AWS, Azure</li><li>Terraform, CloudFormation</li><li>Ansible (Playbooks, Roles, Tower)</li>
+          </ul>
+        
+          <h3>Containers</h3>
+          <ul>
+            <li>Docker</li><li>Kubernetes (EKS, AKS)</li><li>Helm, ECS, ECR</li>
+          </ul>
+        
+          <h3>CI/CD &amp; SCM</h3>
+          <ul>
+            <li>GitHub Actions, Jenkins, Harness</li><li>Git, Bitbucket, Bamboo</li>
+          </ul>
+        
+          <h3>Monitoring &amp; Logging</h3>
+          <ul>
+            <li>Prometheus, Grafana, Loki</li><li>Nagios, Splunk</li>
+          </ul>
+        
+          <h3>Systems</h3>
+          <ul>
+            <li>Linux (RHEL, Ubuntu, CentOS)</li><li>VMware vSphere/vCenter</li><li>Networking, RAID, PXE</li>
+          </ul>
+        
+          <h3>Scripting &amp; Tools</h3>
+          <ul>
+            <li>Bash, Python</li><li>Harbor, JFrog Artifactory/Xray, Sonatype</li><li>Jira, Confluence, ServiceNow</li>
+          </ul>
+        
       </article>
     </section>
 

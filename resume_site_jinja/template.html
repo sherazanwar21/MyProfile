@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mohammad Sheraz Anwar – DevOps & Cloud Engineer</title>
+  <title>{{ name }} – DevOps & Cloud Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <meta name="color-scheme" content="dark light">
   <style>
@@ -72,10 +72,10 @@
   <div class="nav">
     <div class="bar">
       <div class="brand">
-        <img class="photo" src="headshot.jpg" alt="Mohammad Sheraz Anwar">
+        <img class="photo" src="headshot.jpg" alt="{{ name }}">
         <div>
-          <div class="name">Mohammad Sheraz Anwar</div>
-          <div class="title">Linux • DevOps • Cloud Engineer</div>
+          <div class="name">{{ name }}</div>
+          <div class="title">{{ title }}</div>
         </div>
       </div>
       <nav class="links">
@@ -92,15 +92,15 @@
     <!-- HERO -->
     <section id="about" class="hero">
       <h1>DevOps & Cloud Engineer</h1>
-      <p class="lead">I build reliable cloud platforms, secure CI/CD, and automated infrastructure at scale. Six years across multi-cloud and on-prem Linux environments.</p>
+      <p class="lead">{{ summary }}</p>
       <div class="cta">
         <a class="btn" href="#contact">Contact</a>
         <a class="ghost" href="Resume.pdf">Download Résumé</a>
-        <a class="ghost" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
-        <a class="ghost" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
+        <a class="ghost" target="_blank" href="{{ linkedin }}">LinkedIn</a>
+        <a class="ghost" target="_blank" href="{{ github }}">GitHub</a>
       </div>
       <div class="tags">
-        <span class="tag">Linux</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span>
+        {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
       </div>
     </section>
 
@@ -108,83 +108,51 @@
     <section class="grid">
       <article id="experience" class="card">
         <h2>Experience</h2>
-        <h3>Senior Engineer, Ground Software DevOps — Terran Orbital</h3>
-        <div class="sub">12/2024 – Present • Irvine, USA</div>
-        <ul><li>Senior engineer on ground software DevOps; platform hardening and CI/CD ownership.</li></ul>
-        <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
-        <h3>DevOps Engineer — JP Morgan</h3>
-        <div class="sub">09/2021 – 12/2024 • New York, NY, USA</div>
-        <ul>
-          <li>IaC with Terraform modules & secure remote state (DynamoDB locking).</li>
-          <li>EKS with Helm; manifests, secrets, and app reliability.</li>
-          <li>CI/CD with GitHub Actions/GitLab; Docker & K8s builds.</li>
-        </ul>
-        <details>
-          <summary>Show full responsibilities</summary>
+        {% for job in experience %}
+          <h3>{{ job.role }} — {{ job.company }}</h3>
+          <div class="sub">{{ job.dates }} • {{ job.location }}</div>
           <ul>
-            <li>Multi-provider cloud provisioning with Terraform.</li>
-            <li>Git branching & policy; reviews and protected releases.</li>
-            <li>K8s performance tuning and cost optimization.</li>
-            <li>HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG).</li>
-            <li>CloudFormation/Lambda automation; backups & DR (Backup/Glacier).</li>
-            <li>Observability with Prometheus & Grafana.</li>
+            {% for b in job.bullets %}<li>{{ b }}</li>{% endfor %}
           </ul>
-        </details>
-        <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
-        <h3>Systems Administrator — MetroPCS</h3>
-        <div class="sub">07/2019 – 09/2021 • Richardson, TX, USA</div>
-        <ul>
-          <li>Managed Linux fleets (RHEL/Ubuntu/CentOS) & VMware vSphere/vCenter.</li>
-          <li>Automated with Ansible & Bash; reduced toil and MTTR.</li>
-          <li>HA, backups, PXE provisioning; security hardening.</li>
-        </ul>
-        <details>
-          <summary>Show full responsibilities</summary>
-          <ul>
-            <li>ESXi/HA/FT, vMotion, tuning • RAID/LVM • Firewalld • SSL.</li>
-            <li>NFS/DNS/DHCP • PXE/TFTP/FTP/AUTOFS • rsync & snapshots.</li>
-            <li>LDAP auth (HA); robust Ansible roles/playbooks in Git.</li>
-          </ul>
-        </details>
+          {% if job.expand_bullets %}
+          <details>
+            <summary>Show full responsibilities</summary>
+            <ul>{% for b in job.expand_bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+          </details>
+          {% endif %}
+          {% if not loop.last %}<hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">{% endif %}
+        {% endfor %}
       </article>
 
       <article id="projects" class="card">
         <h2>Projects</h2>
         <ul>
-          <li><strong>Pipeline as Code:</strong> Reusable Actions for lint/test/build/SBOM/deploy.</li>
-          <li><strong>JFrog Split:</strong> Artifactory/Xray → separate Postgres backends via Helm.</li>
-          <li><strong>Cost-Efficient Envs:</strong> Ephemeral stacks via Terraform + PRs.</li>
+          {% for p in projects %}<li><strong>{{ p.name }}:</strong> {{ p.detail }}</li>{% endfor %}
         </ul>
       </article>
 
       <article id="skills" class="card">
         <h2>Skills</h2>
-        <h3>Cloud & IaC</h3>
-        <ul><li>AWS, Azure • Terraform, CloudFormation • Ansible (Playbooks, Roles, Tower)</li></ul>
-        <h3>Containers</h3>
-        <ul><li>Docker • Kubernetes (EKS, AKS) • Helm • ECS, ECR</li></ul>
-        <h3>CI/CD & SCM</h3>
-        <ul><li>GitHub Actions, Jenkins, Harness • Git, Bitbucket, Bamboo</li></ul>
-        <h3>Monitoring & Logging</h3>
-        <ul><li>Prometheus, Grafana, Loki • Nagios, Splunk</li></ul>
-        <h3>Systems</h3>
-        <ul><li>Linux (RHEL, Ubuntu, CentOS) • VMware vSphere/vCenter • Networking, RAID, PXE</li></ul>
-        <h3>Scripting & Tools</h3>
-        <ul><li>Bash, Python • Harbor, JFrog Artifactory/Xray, Sonatype • Jira, Confluence, ServiceNow</li></ul>
+        {% for s in skills %}
+          <h3>{{ s.category }}</h3>
+          <ul>
+            {% for it in s['items'] %}<li>{{ it }}</li>{% endfor %}
+          </ul>
+        {% endfor %}
       </article>
     </section>
 
     <section id="contact" class="card" style="margin-top:36px">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:MohammadSAnwar26@gmail.com">MohammadSAnwar26@gmail.com</a> • Phone: <a href="tel:15169002505">(516) 900-2505</a> • Irvine, CA (open to remote)</p>
+      <p>Email: <a href="mailto:{{ email }}">{{ email }}</a> • Phone: <a href="tel:15169002505">{{ phone }}</a> • {{ location }}</p>
       <div class="cta">
-        <a class="btn" href="mailto:MohammadSAnwar26@gmail.com">Email Me</a>
-        <a class="ghost" target="_blank" href="https://www.linkedin.com/in/mohammad-anwar-979164317/">LinkedIn</a>
-        <a class="ghost" target="_blank" href="https://github.com/sherazanwar21">GitHub</a>
+        <a class="btn" href="mailto:{{ email }}">Email Me</a>
+        <a class="ghost" target="_blank" href="{{ linkedin }}">LinkedIn</a>
+        <a class="ghost" target="_blank" href="{{ github }}">GitHub</a>
       </div>
     </section>
 
-    <footer>© 2025 Mohammad Sheraz Anwar</footer>
+    <footer>© {{ now_year }} {{ name }}</footer>
   </main>
 
   <script>
