@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +27,7 @@
         content="DevOps & Cloud Engineer specializing in AWS, Kubernetes, Terraform, CI/CD, and automation.">
   <meta name="twitter:image" content="https://mohammadsheraz.com/headshot.jpg">
 
-  <!-- ⭐ STRUCTURED DATA (JSON-LD) -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,8 +76,9 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://mohammadsheraz.com/" />
 
-  <!-- Fonts & color scheme -->
+  <!-- Fonts & icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <meta name="color-scheme" content="dark light">
 
   <style>
@@ -93,6 +94,17 @@
       --radius:20px; --shadow:0 14px 36px rgba(0,0,0,.45);
       --maxw: 1280px;
     }
+
+    :root[data-theme="light"]{
+      --bg-grad: #f3f4f6;
+      --card:#ffffff;
+      --ink:#111827;
+      --muted:#4b5563;
+      --ring:#d1d5db;
+      --brand:#2563eb;
+      --brand2:#7c3aed;
+    }
+
     *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg-grad);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;font-size:18px;line-height:1.9}
@@ -101,31 +113,54 @@
 
     /* NAV */
     .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring)}
+    :root[data-theme="light"] .nav{background:rgba(249,250,251,.9);}
     .bar{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
     .brand{display:flex;align-items:center;gap:14px}
     .photo{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #21406d;background:#0e1c34;box-shadow:0 0 0 3px rgba(99,102,241,.18)}
     .name{font-weight:800}
     .title{color:var(--muted);font-weight:600;font-size:16px}
-    .links{display:flex;gap:16px;flex-wrap:wrap}
-    .pill{padding:10px 14px;border:1px solid var(--ring);border-radius:14px;color:var(--ink);transition:.2s}
+    .links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .pill{padding:10px 14px;border:1px solid var(--ring);border-radius:14px;color:var(--ink);transition:.2s;background:transparent}
     .pill:hover{background:var(--brand);color:#061322}
+    .theme-toggle{cursor:pointer;display:flex;align-items:center;gap:8px;font-size:14px}
 
     /* HERO */
     .hero{margin-top:46px;background:rgba(17,26,46,.95);border:1px solid var(--ring);border-radius:28px;box-shadow:var(--shadow);
           padding:64px 48px;text-align:center;display:grid;gap:20px}
+    :root[data-theme="light"] .hero{background:#ffffff;}
     .hero h1{margin:0;font-size:48px}
     .hero p.lead{margin:0 auto;max-width:70ch;color:var(--muted);font-size:19px}
     .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px}
-    .btn{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071522;padding:12px 20px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
-    .ghost{padding:12px 16px;border:1px solid var(--ring);border-radius:14px}
+    .btn{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071522;padding:12px 20px;border-radius:14px;font-weight:800;box-shadow:var(--shadow);border:none}
+    .ghost{padding:12px 16px;border:1px solid var(--ring);border-radius:14px;background:transparent}
 
     .tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
     .tag{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;font-size:12px;padding:7px 12px;border-radius:999px;background:#0c1630;border:1px solid #2b4372;color:var(--muted)}
+    :root[data-theme="light"] .tag{background:#eef2ff;border-color:#c7d2fe;}
+
+    .tech-icons{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+      margin-top:16px;
+      font-size:32px;
+      opacity:.9;
+    }
+    .tech-icons i{transition:transform .15s ease-out, opacity .15s ease-out}
+    .tech-icons i:hover{transform:translateY(-2px);opacity:1}
 
     /* GRID */
     .grid{display:grid;gap:36px;margin-top:52px;grid-template-columns:1.6fr 1fr}
     @media (max-width:1100px){.grid{grid-template-columns:1fr}}
-    .card{background:rgba(17,26,46,.95);border:1px solid var(--ring);border-radius:20px;box-shadow:var(--shadow);padding:28px}
+    .card{background:rgba(17,26,46,.95);border:1px solid var(--ring);border-radius:20px;box-shadow:var(--shadow);padding:28px;
+          transition: transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out;}
+    :root[data-theme="light"] .card{background:#ffffff;}
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      border-color: rgba(56,189,248,.6);
+    }
     h2{margin:0 0 12px;font-size:22px} h3{margin:0 0 8px;font-size:17px}
     .sub{color:var(--muted);font-size:15px}
     ul{margin:0;padding-left:22px} li{margin:12px 0}
@@ -137,27 +172,6 @@
 
     /* Section anchor highlight */
     .active{outline:2px solid rgba(56,189,248,.25); outline-offset:6px; border-radius:16px}
-    
-    /* Subtle interactions */
-    .card{
-      transition: transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out;
-    }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0,0,0,.55);
-      border-color: rgba(56,189,248,.6);
-    }
-
-    .btn, .ghost{
-      transition: transform .15s ease-out, box-shadow .15s ease-out, background .15s ease-out;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(56,189,248,.45);
-    }
-    .ghost:hover{
-      transform: translateY(-1px);
-    }
 
     footer{margin-top:64px;text-align:center;color:var(--muted)}
   </style>
@@ -167,7 +181,7 @@
   <div class="nav">
     <div class="bar">
       <div class="brand">
-        <img class="photo" src="headshot.jpg" alt="{{ name }}">
+        <img class="photo" src="headshot.jpg" alt="{{ name }}" loading="lazy">
         <div>
           <div class="name">{{ name }}</div>
           <div class="title">{{ title }}</div>
@@ -178,9 +192,13 @@
         <a class="pill" href="#experience">Experience</a>
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#skills">Skills</a>
-        <a class="pill" href="#certifications">Certifications</a>
         <a class="pill" href="#education">Education</a>
+        <a class="pill" href="#certifications">Certifications</a>
         <a class="pill" href="#contact">Contact</a>
+        <button class="pill theme-toggle" type="button" aria-label="Toggle color mode">
+          <span class="theme-icon">🌙</span>
+          Theme
+        </button>
       </nav>
     </div>
   </div>
@@ -193,11 +211,19 @@
       <div class="cta">
         <a class="btn" href="#contact">Contact</a>
         <a class="ghost" href="Resume.pdf">Download Résumé</a>
-        <a class="ghost" target="_blank" href="{{ linkedin }}">LinkedIn</a>
-        <a class="ghost" target="_blank" href="{{ github }}">GitHub</a>
+        <a class="ghost" target="_blank" rel="noopener noreferrer" href="{{ linkedin }}">LinkedIn</a>
+        <a class="ghost" target="_blank" rel="noopener noreferrer" href="{{ github }}">GitHub</a>
       </div>
       <div class="tags">
         {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      <div class="tech-icons">
+        <i class="devicon-linux-plain" title="Linux"></i>
+        <i class="devicon-amazonwebservices-plain-wordmark" title="AWS"></i>
+        <i class="devicon-kubernetes-plain" title="Kubernetes"></i>
+        <i class="devicon-docker-plain-wordmark" title="Docker"></i>
+        <i class="devicon-terraform-plain" title="Terraform"></i>
+        <i class="devicon-github-original" title="GitHub"></i>
       </div>
     </section>
 
@@ -238,23 +264,6 @@
         {% endfor %}
       </article>
 
-      {% if certifications %}
-      <article id="certifications" class="card">
-        <h2>Certifications</h2>
-        <ul>
-          {% for cert in certifications %}
-            <li>
-              <strong>{{ cert.name }}</strong> — {{ cert.issuer }}
-              {% if cert.date %}<span class="sub"> • {{ cert.date }}</span>{% endif %}
-              {% if cert.link %}
-                <div><a href="{{ cert.link }}" target="_blank">View credential</a></div>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </article>
-      {% endif %}
-
       {% if education %}
       <article id="education" class="card">
         <h2>Education</h2>
@@ -265,6 +274,22 @@
         {% endfor %}
       </article>
       {% endif %}
+
+      {% if certifications %}
+      <article id="certifications" class="card">
+        <h2>Certifications</h2>
+        <ul>
+          {% for cert in certifications %}
+            <li>
+              <strong>{{ cert.name }}</strong> — {{ cert.issuer }} ({{ cert.date }})
+              {% if cert.url %}
+                • <a href="{{ cert.url }}" target="_blank" rel="noopener noreferrer">View credential</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endif %}
     </section>
 
     <section id="contact" class="card" style="margin-top:36px">
@@ -272,8 +297,8 @@
       <p>Email: <a href="mailto:{{ email }}">{{ email }}</a> • Phone: <a href="tel:15169002505">{{ phone }}</a> • {{ location }}</p>
       <div class="cta">
         <a class="btn" href="mailto:{{ email }}">Email Me</a>
-        <a class="ghost" target="_blank" href="{{ linkedin }}">LinkedIn</a>
-        <a class="ghost" target="_blank" href="{{ github }}">GitHub</a>
+        <a class="ghost" target="_blank" rel="noopener noreferrer" href="{{ linkedin }}">LinkedIn</a>
+        <a class="ghost" target="_blank" rel="noopener noreferrer" href="{{ github }}">GitHub</a>
       </div>
     </section>
 
@@ -282,7 +307,7 @@
 
   <script>
     // Highlight section on scroll
-    const ids=['about','experience','projects','skills','certifications','education','contact'];
+    const ids=['about','experience','projects','skills','education','certifications','contact'];
     const els=ids.map(id=>document.getElementById(id));
     const opts={root:null,rootMargin:"0px",threshold:.35};
     const io=new IntersectionObserver((entries)=>{
@@ -294,6 +319,29 @@
       });
     },opts);
     els.forEach(el=>io.observe(el));
+
+    // Theme toggle with localStorage
+    (function(){
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      if(stored === 'light' || stored === 'dark'){
+        root.setAttribute('data-theme', stored);
+      }
+      const toggle = document.querySelector('.theme-toggle');
+      const icon = document.querySelector('.theme-icon');
+      function syncIcon(){
+        icon.textContent = root.getAttribute('data-theme') === 'light' ? '☀️' : '🌙';
+      }
+      syncIcon();
+      if(toggle){
+        toggle.addEventListener('click', ()=>{
+          const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          syncIcon();
+        });
+      }
+    })();
   </script>
 </body>
 </html>
