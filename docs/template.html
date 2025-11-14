@@ -267,24 +267,32 @@
       <article id="edu-cert" class="card">
         <h2>Education & Certifications</h2>
 
-        <!-- EDUCATION -->
-        {% for edu in education %}
-        <h3>{{ edu.degree }}</h3>
-        <div class="sub">{{ edu.school }} — {{ edu.location }} ({{ edu.dates }})</div>
-        {% if not loop.last %}<hr>{% endif %}
+        <!-- Degrees -->
+        {% for item in education_and_certifications %}
+          {% if item.type == "degree" %}
+            <h3>{{ item.title }}</h3>
+            <div class="sub">
+              {{ item.school }} — {{ item.location }} ({{ item.dates }})
+            </div>
+            <hr style="border:0;border-top:1px solid var(--ring);margin:12px 0">
+          {% endif %}
         {% endfor %}
 
-        {% if certifications %}
-        <hr>
+        <!-- Certifications -->
         <ul>
-          {% for c in certifications %}
-          <li>
-            <strong>{{ c.name }}</strong> — {{ c.issuer }} ({{ c.year }})
-            {% if c.link %} • <a href="{{ c.link }}" target="_blank" rel="noopener noreferrer">View credential</a>{% endif %}
-          </li>
+          {% for item in education_and_certifications %}
+            {% if item.type == "certification" %}
+              <li>
+                <strong>{{ item.title }}</strong> — {{ item.issuer }} ({{ item.year }})
+                {% if item.url %}
+                  • <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+                    View credential
+                  </a>
+                {% endif %}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
-        {% endif %}
       </article>
     </section>
 
