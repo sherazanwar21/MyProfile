@@ -119,10 +119,11 @@
     .photo{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #21406d;background:#0e1c34;box-shadow:0 0 0 3px rgba(99,102,241,.18)}
     .name{font-weight:800}
     .title{color:var(--muted);font-weight:600;font-size:16px}
-    .links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-    .pill{padding:10px 14px;border:1px solid var(--ring);border-radius:14px;color:var(--ink);transition:.2s;background:transparent}
+    .links{display:flex;gap:12px;flex-wrap:nowrap;align-items:center;overflow-x:auto;padding-bottom:4px}
+    .links::-webkit-scrollbar{display:none}
+    .pill{padding:8px 12px;border:1px solid var(--ring);border-radius:14px;color:var(--ink);transition:.2s;background:transparent;white-space:nowrap;font-size:14px}
     .pill:hover{background:var(--brand);color:#061322}
-    .theme-toggle{cursor:pointer;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0}
+    .theme-toggle{cursor:pointer;display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0}
 
     /* HERO */
     .hero{margin-top:46px;background:rgba(17,26,46,.95);border:1px solid var(--ring);border-radius:28px;box-shadow:var(--shadow);
@@ -175,22 +176,17 @@
 
     footer{margin-top:64px;text-align:center;color:var(--muted)}
 
-    /* 📱 Mobile layout fixes */
-    @media (max-width: 720px){
-      .nav{
-        position: static;      /* let it scroll away on phones */
-      }
+    /* MOBILE TWEAKS */
+    @media (max-width: 768px){
       .bar{
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
-      }
-      .links{
-        justify-content: flex-start;
+        gap:12px;
+        padding:10px 16px;
       }
       .hero{
         margin-top:24px;
-        padding:36px 20px;
+        padding:32px 20px;
       }
     }
   </style>
@@ -213,7 +209,7 @@
         <a class="pill" href="#skills">Skills</a>
         <a class="pill" href="#edu-cert">Education & Certifications</a>
         <a class="pill" href="#contact">Contact</a>
-        <!-- icon-only toggle -->
+        <!-- JUST ICON, NO "Theme" TEXT -->
         <button class="pill theme-toggle" type="button" aria-label="Toggle color mode">
           <span class="theme-icon">🌙</span>
         </button>
