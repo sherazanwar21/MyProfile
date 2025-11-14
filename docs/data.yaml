@@ -99,18 +99,21 @@ skills:
       - "Harbor, JFrog Artifactory/Xray, Sonatype"
       - "Jira, Confluence, ServiceNow"
 
-education:
-  - degree: "B.S. Computer Engineering Technology"
+education_and_certifications:
+  - type: "degree"
+    title: "B.S. Computer Engineering Technology"
     school: "Farmingdale State College, State University of New York"
-    dates: "2023 – Present"
     location: "Farmingdale, NY"
-  - degree: "A.A.S. Computer Engineering Technology"
-    school: "Queensborough Community College"
-    dates: "2020 – 2022"
-    location: "Bayside, NY"
+    dates: "2023 – Present"
 
-certifications:
-  - name: "AWS Certified Cloud Practitioner"
+  - type: "degree"
+    title: "A.A.S. Computer Engineering Technology"
+    school: "Queensborough Community College"
+    location: "Bayside, NY"
+    dates: "2020 – 2022"
+
+  - type: "certification"
+    title: "AWS Certified Cloud Practitioner"
     issuer: "Amazon Web Services (AWS)"
-    date: "Issued 2025"
+    year: "2025"
     url: "https://www.credly.com/badges/1d4707b1-00ab-4b1e-b431-07ea98d5e2a6"
