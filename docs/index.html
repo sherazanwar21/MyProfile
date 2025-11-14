@@ -192,8 +192,7 @@
         <a class="pill" href="#experience">Experience</a>
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#skills">Skills</a>
-        <a class="pill" href="#education">Education</a>
-        <a class="pill" href="#certifications">Certifications</a>
+        <a class="pill" href="#edu-cert">Education & Certifications</a>
         <a class="pill" href="#contact">Contact</a>
         <button class="pill theme-toggle" type="button" aria-label="Toggle color mode">
           <span class="theme-icon">🌙</span>
@@ -311,36 +310,15 @@
         
       </article>
 
-      
-      <article id="education" class="card">
-        <h2>Education</h2>
-        
-          <h3>B.S. Computer Engineering Technology</h3>
-          <div class="sub">Farmingdale State College, State University of New York • Farmingdale, NY • 2023 – Present</div>
-          <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
-        
-          <h3>A.A.S. Computer Engineering Technology</h3>
-          <div class="sub">Queensborough Community College • Bayside, NY • 2020 – 2022</div>
-          
-        
-      </article>
-      
+      <!-- EDUCATION + CERTIFICATIONS TOGETHER -->
+      <article id="edu-cert" class="card">
+        <h2>Education & Certifications</h2>
 
-      
-      <article id="certifications" class="card">
-        <h2>Certifications</h2>
-        <ul>
-          
-            <li>
-              <strong>AWS Certified Cloud Practitioner</strong> — Amazon Web Services (AWS) (Issued 2025)
-              
-                • <a href="https://www.credly.com/badges/1d4707b1-00ab-4b1e-b431-07ea98d5e2a6" target="_blank" rel="noopener noreferrer">View credential</a>
-              
-            </li>
-          
-        </ul>
+        <!-- EDUCATION -->
+        
+
+        
       </article>
-      
     </section>
 
     <section id="contact" class="card" style="margin-top:36px">
@@ -358,7 +336,7 @@
 
   <script>
     // Highlight section on scroll
-    const ids=['about','experience','projects','skills','education','certifications','contact'];
+    const ids=['about','experience','projects','skills','edu-cert','contact'];
     const els=ids.map(id=>document.getElementById(id));
     const opts={root:null,rootMargin:"0px",threshold:.35};
     const io=new IntersectionObserver((entries)=>{

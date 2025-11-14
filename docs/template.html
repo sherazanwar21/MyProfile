@@ -192,8 +192,7 @@
         <a class="pill" href="#experience">Experience</a>
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#skills">Skills</a>
-        <a class="pill" href="#education">Education</a>
-        <a class="pill" href="#certifications">Certifications</a>
+        <a class="pill" href="#edu-cert">Education & Certifications</a>
         <a class="pill" href="#contact">Contact</a>
         <button class="pill theme-toggle" type="button" aria-label="Toggle color mode">
           <span class="theme-icon">🌙</span>
@@ -264,32 +263,29 @@
         {% endfor %}
       </article>
 
-      {% if education %}
-      <article id="education" class="card">
-        <h2>Education</h2>
-        {% for edu in education %}
-          <h3>{{ edu.degree }}</h3>
-          <div class="sub">{{ edu.school }} • {{ edu.location }} • {{ edu.dates }}</div>
-          {% if not loop.last %}<hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">{% endif %}
-        {% endfor %}
-      </article>
-      {% endif %}
+      <!-- EDUCATION + CERTIFICATIONS TOGETHER -->
+      <article id="edu-cert" class="card">
+        <h2>Education & Certifications</h2>
 
-      {% if certifications %}
-      <article id="certifications" class="card">
-        <h2>Certifications</h2>
+        <!-- EDUCATION -->
+        {% for edu in education %}
+        <h3>{{ edu.degree }}</h3>
+        <div class="sub">{{ edu.school }} — {{ edu.location }} ({{ edu.dates }})</div>
+        {% if not loop.last %}<hr>{% endif %}
+        {% endfor %}
+
+        {% if certifications %}
+        <hr>
         <ul>
-          {% for cert in certifications %}
-            <li>
-              <strong>{{ cert.name }}</strong> — {{ cert.issuer }} ({{ cert.date }})
-              {% if cert.url %}
-                • <a href="{{ cert.url }}" target="_blank" rel="noopener noreferrer">View credential</a>
-              {% endif %}
-            </li>
+          {% for c in certifications %}
+          <li>
+            <strong>{{ c.name }}</strong> — {{ c.issuer }} ({{ c.year }})
+            {% if c.link %} • <a href="{{ c.link }}" target="_blank" rel="noopener noreferrer">View credential</a>{% endif %}
+          </li>
           {% endfor %}
         </ul>
+        {% endif %}
       </article>
-      {% endif %}
     </section>
 
     <section id="contact" class="card" style="margin-top:36px">
@@ -307,7 +303,7 @@
 
   <script>
     // Highlight section on scroll
-    const ids=['about','experience','projects','skills','education','certifications','contact'];
+    const ids=['about','experience','projects','skills','edu-cert','contact'];
     const els=ids.map(id=>document.getElementById(id));
     const opts={root:null,rootMargin:"0px",threshold:.35};
     const io=new IntersectionObserver((entries)=>{
