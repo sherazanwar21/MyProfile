@@ -27,7 +27,7 @@
         content="DevOps & Cloud Engineer specializing in AWS, Kubernetes, Terraform, CI/CD, and automation.">
   <meta name="twitter:image" content="https://mohammadsheraz.com/headshot.jpg">
 
-  <!-- ⭐ STRUCTURED DATA (JSON-LD) — ADD THIS EXACT BLOCK -->
+  <!-- ⭐ STRUCTURED DATA (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -137,6 +137,27 @@
 
     /* Section anchor highlight */
     .active{outline:2px solid rgba(56,189,248,.25); outline-offset:6px; border-radius:16px}
+    
+    /* Subtle interactions */
+    .card{
+      transition: transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.55);
+      border-color: rgba(56,189,248,.6);
+    }
+
+    .btn, .ghost{
+      transition: transform .15s ease-out, box-shadow .15s ease-out, background .15s ease-out;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(56,189,248,.45);
+    }
+    .ghost:hover{
+      transform: translateY(-1px);
+    }
 
     footer{margin-top:64px;text-align:center;color:var(--muted)}
   </style>
@@ -157,6 +178,8 @@
         <a class="pill" href="#experience">Experience</a>
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#certifications">Certifications</a>
+        <a class="pill" href="#education">Education</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
@@ -214,6 +237,34 @@
           </ul>
         {% endfor %}
       </article>
+
+      {% if certifications %}
+      <article id="certifications" class="card">
+        <h2>Certifications</h2>
+        <ul>
+          {% for cert in certifications %}
+            <li>
+              <strong>{{ cert.name }}</strong> — {{ cert.issuer }}
+              {% if cert.date %}<span class="sub"> • {{ cert.date }}</span>{% endif %}
+              {% if cert.link %}
+                <div><a href="{{ cert.link }}" target="_blank">View credential</a></div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endif %}
+
+      {% if education %}
+      <article id="education" class="card">
+        <h2>Education</h2>
+        {% for edu in education %}
+          <h3>{{ edu.degree }}</h3>
+          <div class="sub">{{ edu.school }} • {{ edu.location }} • {{ edu.dates }}</div>
+          {% if not loop.last %}<hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">{% endif %}
+        {% endfor %}
+      </article>
+      {% endif %}
     </section>
 
     <section id="contact" class="card" style="margin-top:36px">
@@ -231,12 +282,15 @@
 
   <script>
     // Highlight section on scroll
-    const ids=['about','experience','projects','skills','contact'];
+    const ids=['about','experience','projects','skills','certifications','education','contact'];
     const els=ids.map(id=>document.getElementById(id));
     const opts={root:null,rootMargin:"0px",threshold:.35};
     const io=new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
-        if(e.isIntersecting){ els.forEach(x=>x.classList.remove('active')); e.target.classList.add('active'); }
+        if(e.isIntersecting){
+          els.forEach(x=>x.classList.remove('active'));
+          e.target.classList.add('active');
+        }
       });
     },opts);
     els.forEach(el=>io.observe(el));

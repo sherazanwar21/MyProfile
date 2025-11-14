@@ -9,7 +9,7 @@ github: "https://github.com/sherazanwar21"
 
 summary: >
   DevOps & Cloud Engineer with ~6 years building reliable cloud platforms,
-  secure CI/CD, and automated infrastructure across multi-cloud and on‑prem Linux.
+  secure CI/CD, and automated infrastructure across multi-cloud and on-prem Linux.
   I standardize Terraform modules, operate Kubernetes, and automate everything to reduce toil,
   improve reliability, and speed up delivery.
 
@@ -40,7 +40,7 @@ experience:
       - "EKS with Helm; manifests, secrets, and app reliability."
       - "CI/CD with GitHub Actions/GitLab; Docker & Kubernetes builds."
     expand_bullets:
-      - "Provisioned and managed multi‑provider cloud resources with Terraform."
+      - "Provisioned and managed multi-provider cloud resources with Terraform."
       - "Implemented Git branching strategies; enforced code review & policy."
       - "Tuned Kubernetes clusters and apps; improved SLOs and cost."
       - "HA AWS networking & compute (VPC, EC2, RDS, ALB/ASG)."
@@ -66,7 +66,7 @@ projects:
     detail: "Reusable GitHub Actions for lint/test/build/SBOM/deploy."
   - name: "JFrog Split"
     detail: "Artifactory/Xray migrated to separate PostgreSQL backends via Helm."
-  - name: "Cost‑Efficient Environments"
+  - name: "Cost-Efficient Environments"
     detail: "Ephemeral stacks via Terraform + PRs."
 
 skills:
@@ -108,3 +108,10 @@ education:
     school: "Queensborough Community College"
     dates: "2020 – 2022"
     location: "Bayside, NY"
+
+certifications:
+  - name: "AWS Certified Cloud Practitioner"
+    issuer: "Amazon Web Services (AWS)"
+    date: "Issued 2025"
+    link: "https://www.credly.com/badges/1d4707b1-00ab-4b1e-b431-07ea98d5e2a6"
+

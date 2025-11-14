@@ -27,7 +27,7 @@
         content="DevOps & Cloud Engineer specializing in AWS, Kubernetes, Terraform, CI/CD, and automation.">
   <meta name="twitter:image" content="https://mohammadsheraz.com/headshot.jpg">
 
-  <!-- ⭐ STRUCTURED DATA (JSON-LD) — ADD THIS EXACT BLOCK -->
+  <!-- ⭐ STRUCTURED DATA (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -137,6 +137,27 @@
 
     /* Section anchor highlight */
     .active{outline:2px solid rgba(56,189,248,.25); outline-offset:6px; border-radius:16px}
+    
+    /* Subtle interactions */
+    .card{
+      transition: transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.55);
+      border-color: rgba(56,189,248,.6);
+    }
+
+    .btn, .ghost{
+      transition: transform .15s ease-out, box-shadow .15s ease-out, background .15s ease-out;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(56,189,248,.45);
+    }
+    .ghost:hover{
+      transform: translateY(-1px);
+    }
 
     footer{margin-top:64px;text-align:center;color:var(--muted)}
   </style>
@@ -157,6 +178,8 @@
         <a class="pill" href="#experience">Experience</a>
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#certifications">Certifications</a>
+        <a class="pill" href="#education">Education</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
@@ -166,7 +189,7 @@
     <!-- HERO -->
     <section id="about" class="hero">
       <h1>DevOps & Cloud Engineer</h1>
-      <p class="lead">DevOps &amp; Cloud Engineer with ~6 years building reliable cloud platforms, secure CI/CD, and automated infrastructure across multi-cloud and on‑prem Linux. I standardize Terraform modules, operate Kubernetes, and automate everything to reduce toil, improve reliability, and speed up delivery.
+      <p class="lead">DevOps &amp; Cloud Engineer with ~6 years building reliable cloud platforms, secure CI/CD, and automated infrastructure across multi-cloud and on-prem Linux. I standardize Terraform modules, operate Kubernetes, and automate everything to reduce toil, improve reliability, and speed up delivery.
 </p>
       <div class="cta">
         <a class="btn" href="#contact">Contact</a>
@@ -200,7 +223,7 @@
           
           <details>
             <summary>Show full responsibilities</summary>
-            <ul><li>Provisioned and managed multi‑provider cloud resources with Terraform.</li><li>Implemented Git branching strategies; enforced code review &amp; policy.</li><li>Tuned Kubernetes clusters and apps; improved SLOs and cost.</li><li>HA AWS networking &amp; compute (VPC, EC2, RDS, ALB/ASG).</li><li>Automation with CloudFormation and Lambda; backups &amp; DR (Backup/Glacier).</li><li>Observability with Prometheus &amp; Grafana.</li></ul>
+            <ul><li>Provisioned and managed multi-provider cloud resources with Terraform.</li><li>Implemented Git branching strategies; enforced code review &amp; policy.</li><li>Tuned Kubernetes clusters and apps; improved SLOs and cost.</li><li>HA AWS networking &amp; compute (VPC, EC2, RDS, ALB/ASG).</li><li>Automation with CloudFormation and Lambda; backups &amp; DR (Backup/Glacier).</li><li>Observability with Prometheus &amp; Grafana.</li></ul>
           </details>
           
           <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
@@ -223,7 +246,7 @@
       <article id="projects" class="card">
         <h2>Projects</h2>
         <ul>
-          <li><strong>Pipeline as Code:</strong> Reusable GitHub Actions for lint/test/build/SBOM/deploy.</li><li><strong>JFrog Split:</strong> Artifactory/Xray migrated to separate PostgreSQL backends via Helm.</li><li><strong>Cost‑Efficient Environments:</strong> Ephemeral stacks via Terraform + PRs.</li>
+          <li><strong>Pipeline as Code:</strong> Reusable GitHub Actions for lint/test/build/SBOM/deploy.</li><li><strong>JFrog Split:</strong> Artifactory/Xray migrated to separate PostgreSQL backends via Helm.</li><li><strong>Cost-Efficient Environments:</strong> Ephemeral stacks via Terraform + PRs.</li>
         </ul>
       </article>
 
@@ -261,6 +284,38 @@
           </ul>
         
       </article>
+
+      
+      <article id="certifications" class="card">
+        <h2>Certifications</h2>
+        <ul>
+          
+            <li>
+              <strong>AWS Certified Cloud Practitioner</strong> — Amazon Web Services (AWS)
+              <span class="sub"> • Issued 2025</span>
+              
+                <div><a href="https://www.credly.com/badges/1d4707b1-00ab-4b1e-b431-07ea98d5e2a6" target="_blank">View credential</a></div>
+              
+            </li>
+          
+        </ul>
+      </article>
+      
+
+      
+      <article id="education" class="card">
+        <h2>Education</h2>
+        
+          <h3>B.S. Computer Engineering Technology</h3>
+          <div class="sub">Farmingdale State College, State University of New York • Farmingdale, NY • 2023 – Present</div>
+          <hr style="border:0;border-top:1px solid var(--ring);margin:16px 0">
+        
+          <h3>A.A.S. Computer Engineering Technology</h3>
+          <div class="sub">Queensborough Community College • Bayside, NY • 2020 – 2022</div>
+          
+        
+      </article>
+      
     </section>
 
     <section id="contact" class="card" style="margin-top:36px">
@@ -278,12 +333,15 @@
 
   <script>
     // Highlight section on scroll
-    const ids=['about','experience','projects','skills','contact'];
+    const ids=['about','experience','projects','skills','certifications','education','contact'];
     const els=ids.map(id=>document.getElementById(id));
     const opts={root:null,rootMargin:"0px",threshold:.35};
     const io=new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
-        if(e.isIntersecting){ els.forEach(x=>x.classList.remove('active')); e.target.classList.add('active'); }
+        if(e.isIntersecting){
+          els.forEach(x=>x.classList.remove('active'));
+          e.target.classList.add('active');
+        }
       });
     },opts);
     els.forEach(el=>io.observe(el));
