@@ -33,7 +33,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
-
+  
   <!-- Structured data -->
   <script type="application/ld+json">
   {
@@ -118,6 +118,46 @@
     a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:56px 28px 110px}
 
+    /* LOADER (MSA intro) */
+    .loader{
+      position:fixed;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg-grad);
+      z-index:9999;
+      transition:opacity .4s ease, visibility .4s ease;
+    }
+    .loader.hidden{
+      opacity:0;
+      visibility:hidden;
+    }
+    .loader-logo{
+      border-radius:999px;
+      border:1px solid var(--ring);
+      padding:16px 28px;
+      font-weight:800;
+      letter-spacing:.3em;
+      text-transform:uppercase;
+      font-size:18px;
+      box-shadow:0 18px 40px rgba(0,0,0,.6);
+      background:rgba(15,23,42,.9);
+      color:var(--ink);
+      animation:pulse 1.2s ease-in-out infinite;
+    }
+    .loader-sub{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:.9}
+      50%{transform:scale(1.05);opacity:1}
+      100%{transform:scale(1);opacity:.9}
+    }
+
     /* NAV */
     .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring)}
     :root[data-theme="light"] .nav{background:rgba(249,250,251,.9);}
@@ -133,9 +173,21 @@
     .theme-toggle{cursor:pointer;display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0}
 
     /* HERO */
-    .hero{margin-top:46px;background:rgba(17,26,46,.95);border:1px solid var(--ring);border-radius:28px;box-shadow:var(--shadow);
-          padding:64px 48px;text-align:center;display:grid;gap:20px}
+    .hero{
+      margin-top:46px;
+      background:rgba(17,26,46,.95);
+      border:1px solid var(--ring);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:64px 48px;
+      text-align:center;
+      display:grid;
+      gap:20px;
+      position:relative;
+      overflow:hidden;
+    }
     :root[data-theme="light"] .hero{background:#ffffff;}
+    .hero > *{position:relative;z-index:2}
     .hero h1{margin:0;font-size:48px}
     .hero p.lead{margin:0 auto;max-width:70ch;color:var(--muted);font-size:19px}
     .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px}
@@ -157,6 +209,41 @@
     }
     .tech-icons i{transition:transform .15s ease-out, opacity .15s ease-out}
     .tech-icons i:hover{transform:translateY(-2px);opacity:1}
+
+    /* DEVOPS ANIMATED BACKGROUND IN HERO */
+    .hero-orbit{
+      position:absolute;
+      inset:-40px;
+      pointer-events:none;
+      opacity:.15;
+      z-index:1;
+    }
+    .hero-orbit-icon{
+      position:absolute;
+      font-size:40px;
+      filter:blur(0.2px);
+    }
+    .hero-orbit-icon.k8s{top:8%;left:6%;animation:float1 22s ease-in-out infinite alternate;}
+    .hero-orbit-icon.docker{bottom:12%;right:10%;animation:float2 26s ease-in-out infinite alternate;}
+    .hero-orbit-icon.terraform{top:18%;right:20%;animation:float3 24s ease-in-out infinite alternate;}
+    .hero-orbit-icon.aws{bottom:18%;left:18%;animation:float4 28s ease-in-out infinite alternate;}
+
+    @keyframes float1{
+      0%{transform:translate3d(0,0,0) rotate(0deg);}
+      100%{transform:translate3d(18px,22px,0) rotate(6deg);}
+    }
+    @keyframes float2{
+      0%{transform:translate3d(0,0,0) rotate(0deg);}
+      100%{transform:translate3d(-20px,-16px,0) rotate(-5deg);}
+    }
+    @keyframes float3{
+      0%{transform:translate3d(0,0,0) rotate(0deg);}
+      100%{transform:translate3d(-14px,18px,0) rotate(4deg);}
+    }
+    @keyframes float4{
+      0%{transform:translate3d(0,0,0) rotate(0deg);}
+      100%{transform:translate3d(16px,-18px,0) rotate(-4deg);}
+    }
 
     /* GRID */
     .grid{display:grid;gap:36px;margin-top:52px;grid-template-columns:1.6fr 1fr}
@@ -199,6 +286,12 @@
   </style>
 </head>
 <body>
+  <!-- LOADER -->
+  <div id="loader" class="loader" aria-busy="true" aria-label="Loading portfolio">
+    <div class="loader-logo">MSA</div>
+    <div class="loader-sub">DevOps &amp; Cloud Engineer</div>
+  </div>
+
   <!-- NAV -->
   <div class="nav">
     <div class="bar">
@@ -227,6 +320,14 @@
   <main class="wrap">
     <!-- HERO -->
     <section id="about" class="hero">
+      <!-- Animated DevOps background icons -->
+      <div class="hero-orbit" aria-hidden="true">
+        <i class="hero-orbit-icon k8s devicon-kubernetes-plain"></i>
+        <i class="hero-orbit-icon docker devicon-docker-plain-wordmark"></i>
+        <i class="hero-orbit-icon terraform devicon-terraform-plain"></i>
+        <i class="hero-orbit-icon aws devicon-amazonwebservices-plain-wordmark"></i>
+      </div>
+
       <h1>DevOps & Cloud Engineer</h1>
       <p class="lead">{{ summary }}</p>
       <div class="cta">
@@ -320,7 +421,7 @@
 
     <section id="contact" class="card" style="margin-top:36px">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:{{ email }}">{{ email }}</a> • Phone: <a href="tel:15169002505">{{ phone }}</a> • {{ location }}</p>
+      <p>Email: <a href="mailto{{ email|replace('@','%40') }}"> {{ email }}</a> • Phone: <a href="tel:15169002505">{{ phone }}</a> • {{ location }}</p>
       <div class="cta">
         <a class="btn" href="mailto:{{ email }}">Email Me</a>
         <a class="ghost" target="_blank" rel="noopener noreferrer" href="{{ linkedin }}">LinkedIn</a>
@@ -332,6 +433,14 @@
   </main>
 
   <script>
+    // Loader fade-out
+    window.addEventListener('load', function(){
+      const loader = document.getElementById('loader');
+      if(loader){
+        setTimeout(()=>{ loader.classList.add('hidden'); }, 600);
+      }
+    });
+
     // Highlight section on scroll
     const ids=['about','experience','projects','skills','edu-cert','contact'];
     const els=ids.map(id=>document.getElementById(id));
